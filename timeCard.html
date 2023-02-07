@@ -1,0 +1,63 @@
+<template>
+        <lightning-card>
+                <lightning-layout>
+                        <div class="slds-m-around_medium">
+                                <lightning-input label="Enter Employee ID" value={employeeId} onchange={handleEmployeeIdChange}></lightning-input>
+                                <lightning-button variant="brand" label="Login" onclick={handleLogin}></lightning-button>
+                              </div>
+                </lightning-layout>
+        </lightning-card>
+        <lightning-card title="Timesheet">
+                <p>{currentDateTime}</p>
+                <lightning-layout>
+                        <lightning-layout-item size="3">
+                                <div class="slds-p-around_medium">
+                                        <lightning-input type="date" label="Date" value={date}
+                                                onchange={handleDateChange} required>
+                                        </lightning-input>
+                                </div>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                                <div class="slds-p-around_medium">
+                                        <lightning-input type="time" label="Start Time" value={startTime}
+                                                onchange={handleStartTimeChange} required>
+                                        </lightning-input>
+                                </div>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                                <div class="slds-p-around_medium">
+                                        <lightning-input type="time" label="End Time" value={endTime}
+                                                onchange={handleEndTimeChange} required>
+                                        </lightning-input>
+                                </div>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                                <div class="slds-p-around_medium lgc-bg">
+                                        <lightning-input type="number" label="Hours Worked" value={hoursWorked}
+                                                readonly>
+                                        </lightning-input>
+                                </div>
+                        </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                        <lightning-layout-item size="8">
+                                <div class="slds-p-around_medium">
+                                        <lightning-input type="text" label="Description" value={description} placeholder="type here..."
+                                                required>
+                                        </lightning-input>
+                                </div>
+                                <div class="slds-p-around_medium">
+
+                                        <lightning-button label="Save" variant="brand" onclick={handleSave}>
+                                        </lightning-button>
+                                </div>
+                        </lightning-layout-item>
+                </lightning-layout>
+        </lightning-card>
+        <lightning-card>
+                <lightning-datatable data={data} columns={columns} key-field="id"></lightning-datatable>
+        </lightning-card>
+</template>
